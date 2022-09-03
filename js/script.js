@@ -26,6 +26,7 @@ const renderCategory = (categories) => {
 };
 
 const categoryBtnClickHandler = (element) => {
+  document.getElementById('news').innerHTML = '';
   const categoryBtns = document.querySelectorAll('.btn-category');
   categoryBtns.forEach((categoryBtn) => {
     categoryBtn.classList.remove('text-primary');
@@ -34,7 +35,6 @@ const categoryBtnClickHandler = (element) => {
   element.classList.add('text-primary');
   element.disabled = true;
   fetchNews(element.dataset.id, element.innerText);
-
   document.querySelector('.loading-animation').classList.remove('d-none');
 };
 
@@ -99,13 +99,13 @@ const newsCardHtml = (data) => {
       src="${thumbnail_url}" alt="news thumbnail">
   </div>
   <div class="">
-    <div class="card-body p-3 p-md-4">
+    <div class="card-body p-3 p-md-4 h-100 d-flex flex-column">
       <div class="news-text">
         <h5 class="card-title" role="button">${title}</h5>
-        <p class="card-text">${details.length > 190 ? details.slice(0, 190) : details}...</p>
+        <p class="card-text mt-3">${details.length > 190 ? details.slice(0, 195) : details}...</p>
       </div>
-      <div class="d-flex flex-wrap align-items-center mt-3">
-        <div class="author d-flex align-items-center me-5 py-3">
+      <div class="d-flex flex-wrap align-items-center mt-auto pt-4">
+        <div class="author d-flex align-items-center me-5">
           <div class="author-img me-2">
             <img class="img-fluid rounded-circle" src="${author.img}" alt="author">
           </div>
