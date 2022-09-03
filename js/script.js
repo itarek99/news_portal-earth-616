@@ -127,15 +127,15 @@ const newsCardHtml = (data) => {
                 <div class="w-100">
                   <div class="card-body p-3 p-md-4 h-100 d-flex flex-column">
                     <div class="news-text">
-                      <h5 class="card-title" role="button">${title}</h5>
+                      <h5 class="card-title" onclick='fetchSingleNews("${_id}")' data-bs-toggle="modal" data-bs-target="#newsModal" role="button">${title}</h5>
                       <p class="card-text mt-3">${details.length > 190 ? details.slice(0, 195) : details}...</p>
                     </div>
-                    <div class="d-flex flex-wrap align-items-center mt-auto pt-4 ">
-                      <div class="author d-flex align-items-center me-5">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between mt-auto pt-4">
+                      <div class="author d-flex align-items-center">
                         <div class="author-img me-3">
                           <img class="img-fluid rounded-circle" src="${author.img}" alt="author">
                         </div>
-                        <div>
+                        <div class='py-3'>
                           <p class="author-name m-0">${!author.name ? 'Data N/A' : author.name}</p>
                           <p class="m-0 text-secondary fs-14">${published_date}</p>
                         </div>
@@ -146,7 +146,7 @@ const newsCardHtml = (data) => {
                           <p class="fw-bold m-0">${!total_view ? 'Data N/A' : total_view}</p>
                         </div>
                       </div>
-                      <button onclick='fetchSingleNews("${_id}")' class="ms-auto border-0 bg-transparent text-primary"
+                      <button onclick='fetchSingleNews("${_id}")' class="d-none d-sm-block border-0 bg-transparent text-primary"
                         data-bs-toggle="modal" data-bs-target="#newsModal">
                         <i class="fa-solid fa-chevron-right"></i>
                       </button>
