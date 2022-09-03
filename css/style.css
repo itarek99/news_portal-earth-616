@@ -37,6 +37,8 @@ body {
   }
 }
 
+/******** loading animation css start ********/
+
 .loading-animation {
   z-index: 10;
   position: fixed;
@@ -152,3 +154,5 @@ body {
 .ldio-oa3ujtgkfe div {
   box-sizing: content-box;
 }
+
+/******** loading animation css end ********/
