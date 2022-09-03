@@ -1,8 +1,12 @@
 (async () => {
-  const response = await fetch('https://openapi.programming-hero.com/api/news/categories');
-  const { data } = await response.json();
-  const { news_category } = data;
-  renderCategory(news_category);
+  try {
+    const response = await fetch('https://openapi.programming-hero.com/api/news/categories');
+    const { data } = await response.json();
+    const { news_category } = data;
+    renderCategory(news_category);
+  } catch (error) {
+    console.log(error);
+  }
 })();
 
 const renderCategory = (categories) => {
@@ -20,13 +24,19 @@ const categoryBtnClickHandler = (element) => {
   });
   element.classList.add('text-primary');
   fetchNews(element.dataset.id, element.innerText);
+
+  document.querySelector('.loading-animation').classList.remove('d-none');
 };
 
 const fetchNews = async (categoryId, categoryTitle) => {
   console.log(categoryId, categoryTitle);
-  const response = await fetch(`https://openapi.programming-hero.com/api/news/category/${categoryId}`);
-  const { data } = await response.json();
-  renderNews(data, categoryTitle);
+  try {
+    const response = await fetch(`https://openapi.programming-hero.com/api/news/category/${categoryId}`);
+    const { data } = await response.json();
+    renderNews(data, categoryTitle);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const renderNews = (newsData, categoryTitle) => {
@@ -38,6 +48,7 @@ const renderNews = (newsData, categoryTitle) => {
   sortedNewsData.forEach((data) => {
     newsContainer.insertAdjacentHTML('beforeend', newsCardHtml(data));
   });
+  document.querySelector('.loading-animation').classList.add('d-none');
 };
 
 const newsCardHtml = (data) => {
