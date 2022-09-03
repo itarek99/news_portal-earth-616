@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Custom Css -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- Site Title -->
+  <title>Earth 616</title>
+</head>
+
+<body>
+  <!-- navigation bar -->
+  <nav class="navbar navbar-light bg-transparent border-bottom">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <a href="/" class="fw-medium fs-4 py-1 text-decoration-none text-dark">EARTH <span
+            class="text-primary">616</span></a>
+        <ul class="d-flex m-0 list-unstyled">
+          <li class="me-4"><a class="text-decoration-none text-dark" href="/">News</a></li>
+          <li><a class="text-decoration-none fw-medium" href="/blog.html">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="mb-5">
+      <h3>Difference between Var, Let, and Const in JavaScript.</h3>
+      <div>
+        <p class="mb-2"><span class="text-primary fw-medium">var</span> declarations are globally scoped or function
+          scoped. That means if a variable is declared
+          with var
+          outside
+          a function then it is in the global scope (accessible anywhere). Otherwise, if they are inside a function we
+          can
+          only access them inside the function.One of the issues with the var keyword is they can be re-declared inside
+          the same scope.</p>
+        <p class="mb-2"> <span class="text-primary fw-medium">let</span> is an enhanced version of var, it solves all
+          the problems that come with the
+          var
+          keyword.
+          Like, let is a block-scoped variable and we cannot re-declared but can be updated (re-assigned).</p>
+        <p class="mb-2"> <span class="text-primary fw-medium">const</span>
+          declarations share some similarities with let declarations, but const variables cannot be updated or
+          re-declared. It maintains the constant values.
+          Unlike var and let, if we are using const then it must be initialized at the same time when we declared the
+          variable.</p>
+      </div>
+    </div>
+    <div class="mb-5">
+      <h3>Differences Between Arrow and Regular Functions.</h3>
+      <p>
+        Inside of a regular JavaScript function, <span class="text-primary fw-medium">this</span> value is dynamic. The
+        arrow function doesn't define its own
+        execution context. No matter how or where being executed, <span class="text-primary fw-medium">this</span> value
+        inside of an arrow function always equals
+        this value from the outer function.
+      </p>
+    </div>
+    <div class="mb-5">
+      <h3>forEach vs map vs filter vs vs find in JavaScript.</h3>
+      <div>
+        <p class="mb-2"><span class="text-primary fw-medium">.forEach()</span> in this method we pass a function that
+          is executed
+          on each element in the array.</p>
+        <p class="mb-2"><span class="text-primary fw-medium">.map()</span> method creates a new array populated with the
+          results of calling a provided function on
+          every element
+          in
+          the calling array.</p>
+
+        <p class="mb-2"><span class="text-primary fw-medium">.filter()</span> method creates a shallow copy of a portion
+          of a given array, filtered down to just the
+          elements
+          from
+          the given array that pass the test implemented by the provided function.</p>
+
+        <p class="mb-2"><span class="text-primary fw-medium">.find()</span> method returns the first element in the
+          provided array that satisfies the provided
+          testing function.
+          If
+          no values satisfy the testing function, undefined is returned.</p>
+      </div>
+    </div>
+    <div class="mb-5">
+      <h3>Why use template string?</h3>
+      <p>
+        Template string lets us insert/interpolate variables and expressions into strings without needing to concatenate
+        like in
+        older versions of JavaScript. It allows us to create strings that are complex and contain dynamic elements.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="bg-white">
+    <div class="container">
+      <div class="text-center py-4">
+        <p class="m-0">&copy; 2022 Earth 616 | All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <!--  Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
