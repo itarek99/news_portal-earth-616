@@ -62,7 +62,7 @@ const renderNews = (newsData, categoryTitle) => {
 const renderModal = (singleNewsData) => {
   console.log(singleNewsData);
   const { title, image_url, details, total_view, others_info } = singleNewsData;
-  document.querySelector('.modal-title').innerText = title;
+  document.getElementById('news-title').innerText = title;
   document.getElementById('modal-image').src = image_url;
   document.getElementById('modal-text').innerText = details;
   document.getElementById('total-view').innerText = !total_view ? 0 : total_view;
@@ -88,8 +88,9 @@ const fetchSingleNews = async (news_id) => {
 const newsCardHtml = (data) => {
   const { author, details, thumbnail_url, title, total_view, _id } = data;
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
-  const published_date =
-    author.published_date === null ? 'N/A' : new Date(author.published_date).toLocaleDateString(undefined, options);
+  const published_date = !author.published_date
+    ? 'Date N/A'
+    : new Date(author.published_date).toLocaleDateString(undefined, options);
 
   return `<div class="card mb-5 rounded-5">
 <div class="d-flex flex-column flex-md-row">
@@ -98,7 +99,7 @@ const newsCardHtml = (data) => {
       src="${thumbnail_url}" alt="news thumbnail">
   </div>
   <div class="">
-    <div class="card-body p-4">
+    <div class="card-body p-3 p-md-4">
       <div class="news-text">
         <h5 class="card-title" role="button">${title}</h5>
         <p class="card-text">${details.length > 190 ? details.slice(0, 190) : details}...</p>
@@ -109,14 +110,14 @@ const newsCardHtml = (data) => {
             <img class="img-fluid rounded-circle" src="${author.img}" alt="author">
           </div>
           <div>
-            <p class="author-name m-0">${author.name ? author.name : 'Anonymous Author'}</p>
+            <p class="author-name m-0">${!author.name ? 'Data N/A' : author.name}</p>
             <p class="m-0 text-secondary fs-14">${published_date}</p>
           </div>
         </div>
         <div class="view ms-0 ms-md-5">
           <div class="d-flex align-items-center">
             <i class="fa-solid fa-binoculars me-2"></i>
-            <p class="fw-bold m-0">${total_view === null ? 0 : total_view}</p>
+            <p class="fw-bold m-0">${!total_view ? 'Data N/A' : total_view}</p>
           </div>
         </div>
         <button onclick='fetchSingleNews("${_id}")' class="ms-auto border-0 bg-transparent text-primary" data-bs-toggle="modal" data-bs-target="#newsModal">
