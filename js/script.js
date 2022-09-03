@@ -124,13 +124,13 @@ const newsCardHtml = (data) => {
                 <div class="flex-flex-shrink-0">
                   <img class="card-thumb" src="${thumbnail_url}" alt="news thumbnail">
                 </div>
-                <div class="">
+                <div class="w-100">
                   <div class="card-body p-3 p-md-4 h-100 d-flex flex-column">
                     <div class="news-text">
                       <h5 class="card-title" role="button">${title}</h5>
                       <p class="card-text mt-3">${details.length > 190 ? details.slice(0, 195) : details}...</p>
                     </div>
-                    <div class="d-flex flex-wrap align-items-center mt-auto pt-4">
+                    <div class="d-flex flex-wrap align-items-center mt-auto pt-4 ">
                       <div class="author d-flex align-items-center me-5">
                         <div class="author-img me-3">
                           <img class="img-fluid rounded-circle" src="${author.img}" alt="author">
