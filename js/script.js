@@ -12,7 +12,6 @@
 const renderCategory = (categories) => {
   const categoryContainer = document.getElementById('category');
   categories.forEach((category) => {
-    console.log(category);
     if (category.category_id == '01') {
       const buttonHtml = `<button onclick='categoryBtnClickHandler(this)' data-id=${category.category_id} class="btn-category border-0 bg-transparent py-1 text-primary">${category.category_name}</button>`;
       categoryContainer.insertAdjacentHTML('beforeend', buttonHtml);
@@ -27,6 +26,7 @@ const renderCategory = (categories) => {
 
 const categoryBtnClickHandler = (element) => {
   document.getElementById('news').innerHTML = '';
+  document.getElementById('item-found').innerText = 'Loading Data...';
   const categoryBtns = document.querySelectorAll('.btn-category');
   categoryBtns.forEach((categoryBtn) => {
     categoryBtn.classList.remove('text-primary');
@@ -60,8 +60,11 @@ const renderNews = (newsData, categoryTitle) => {
 };
 
 const renderModal = (singleNewsData) => {
-  console.log(singleNewsData);
-  const { title, image_url, details, total_view, others_info } = singleNewsData;
+  // date locale string options
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+  // object destructuring
+  const { title, image_url, details, total_view, others_info, author } = singleNewsData;
+  // dynamic value added
   document.getElementById('news-title').innerText = title;
   document.getElementById('modal-image').src = image_url;
   document.getElementById('modal-text').innerText = details;
@@ -69,8 +72,11 @@ const renderModal = (singleNewsData) => {
   document.getElementById('trending').innerHTML = others_info.is_trending
     ? `<i class="fa-solid fa-arrow-trend-up"></i>`
     : `<i class="fa-solid fa-arrow-trend-down"></i>`;
-
-  console.log(others_info.is_trending);
+  document.getElementById('modal-author-image').src = author.img;
+  document.getElementById('modal-author-name').innerText = author.name;
+  document.getElementById('modal-published-date').innerText = !author.published_date
+    ? 'Date N/A'
+    : new Date(author.published_date).toLocaleDateString(undefined, options);
 };
 
 const fetchSingleNews = async (news_id) => {

@@ -78,13 +78,15 @@
             <div id="info" class="d-flex align-items-center justify-content-between mb-3">
               <div class=" d-flex align-items-center py-3">
                 <div class="author-img me-2">
-                  <img class="img-fluid rounded-circle"
-                    src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
-                    alt="author">
+                  <img id="modal-author-image" class="img-fluid rounded-circle" src="" alt="author">
                 </div>
                 <div>
-                  <p class="author-name m-0">Tarekul Islam</p>
-                  <p class="m-0 text-secondary fs-14">Jan 15, 2022</p>
+                  <p id="modal-author-name" class="author-name m-0">
+                    <!-- author name will appear here -->
+                  </p>
+                  <p id="modal-published-date" class="m-0 text-secondary fs-14">
+                    <!-- published date will appear here -->
+                  </p>
                 </div>
               </div>
               <div class="view">
@@ -101,7 +103,7 @@
             <p id="modal-text"></p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
